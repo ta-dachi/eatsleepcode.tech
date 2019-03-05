@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import AppBar from "./components/AppBar";
+import ResponsiveDrawer from "./components/ResponsiveDrawer";
 
 class Links extends React.Component {
   render() {
@@ -16,8 +16,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <AppBar />
-        <div>App Component</div>
+        <ResponsiveDrawer />
         <div>
           <Links />
         </div>

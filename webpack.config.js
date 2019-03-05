@@ -1,9 +1,23 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
+
+let mode = "development";
+let sourceMaps = "source-map";
+
+// let mode = "production";
+// let sourceMaps = "false";
+// if (env.NODE_ENV !== undefined) {
+//   if (env.NODE_ENV === "production") {
+//     mode = "production";
+//     sourceMaps = false;
+//   }
+// }
 
 module.exports = {
+  mode: mode,
   entry: {
     index: path.join(__dirname, "src", "index.jsx")
   },
@@ -11,7 +25,7 @@ module.exports = {
     path: path.join(__dirname, "dist"),
     filename: "bundle.js"
   },
-  devtool: "source-map",
+  devtool: sourceMaps,
   module: {
     rules: [
       {
@@ -61,7 +75,6 @@ module.exports = {
     port: 3031
   },
   plugins: [
-    new CleanWebpackPlugin(["dist"]),
     new HtmlWebPackPlugin({
       template: "src/index.html",
       filename: "index.html"
@@ -72,6 +85,31 @@ module.exports = {
         to: "pwa",
         force: true
       }
-    ])
-  ]
+    ]),
+    new BundleAnalyzerPlugin()
+  ],
+  optimization: {
+    splitChunks: {
+      chunks: "async",
+      minSize: 100000,
+      maxSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: "~",
+      name: true,
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all"
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
+  }
 };
