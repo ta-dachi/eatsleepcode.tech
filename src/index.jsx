@@ -1,26 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import ResponsiveDrawer from "./components/ResponsiveDrawer";
-
-class Links extends React.Component {
-  render() {
-    return (
-      <div>
-        <a href="/pwa/dir-tree-web-visual/dist/">Click Me</a>
-      </div>
-    );
-  }
-}
+import { BrowserRouter } from "react-router-dom";
 
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <BrowserRouter basename="/">
         <ResponsiveDrawer />
-        <div>
-          <Links />
-        </div>
-      </div>
+      </BrowserRouter>
     );
   }
 }

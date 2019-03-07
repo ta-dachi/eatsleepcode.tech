@@ -23,7 +23,8 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, "dist"),
-    filename: "bundle.js"
+    filename: "bundle.js",
+    publicPath: "/"
   },
   devtool: sourceMaps,
   module: {
@@ -72,7 +73,8 @@ module.exports = {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
     host: "0.0.0.0",
-    port: 3031
+    port: 3031,
+    historyApiFallback: true
   },
   plugins: [
     new HtmlWebPackPlugin({

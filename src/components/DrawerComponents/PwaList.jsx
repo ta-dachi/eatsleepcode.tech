@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 // Material UI Components
 import List from "@material-ui/core/List";
@@ -39,7 +38,7 @@ function PwaList(props) {
             <Avatar className={classes.orangeAvatar}>ANI</Avatar>
           </ListItemIcon>
 
-          <ListItemText inset primary="Anilist" />
+          <ListItemText inset primary="AniList" />
         </ListItem>
       </Link>
     </List>
