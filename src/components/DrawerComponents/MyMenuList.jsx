@@ -18,14 +18,18 @@ import { GoOctoface } from "react-icons/go";
 import { Link } from "react-router-dom";
 
 // We can inject some CSS into the DOM.
-const styles = theme => ({});
+const styles = theme => ({
+  linkStyle: {
+    textDecoration: "none"
+  }
+});
 
 function MyMenuList(props) {
   const { classes, children, className, ...other } = props;
 
   return (
     <List>
-      <Link to="/">
+      <Link to="/" className={classes.linkStyle}>
         <ListItem button key={"Home"}>
           <ListItemIcon>
             <HomeIcon />
@@ -33,7 +37,7 @@ function MyMenuList(props) {
           <ListItemText primary={"Home"} />
         </ListItem>
       </Link>
-      <Link to="/contact">
+      <Link to="/contact" className={classes.linkStyle}>
         <ListItem button key={"Contact Mail"}>
           <ListItemIcon>
             <ContactMailIcon />
@@ -49,7 +53,7 @@ function MyMenuList(props) {
           <ListItemText primary={"Github"} />
         </ListItem>
       </Href>
-      <Link to="/posts">
+      <Link to="/posts" className={classes.linkStyle}>
         <ListItem button key={"Posts"}>
           <ListItemIcon>
             <DescriptionIcon />
@@ -57,7 +61,7 @@ function MyMenuList(props) {
           <ListItemText primary={"Posts"} />
         </ListItem>
       </Link>
-      <Link to="/photoblog">
+      <Link to="/photoblog" className={classes.linkStyle}>
         <ListItem button key={"Photo Blog"}>
           <ListItemIcon>
             <ImageIcon />

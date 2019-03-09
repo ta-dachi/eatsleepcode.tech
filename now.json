@@ -1,5 +1,23 @@
 {
   "version": 2,
   "name": "homepage",
-  "alias": ["www.eatsleepcode.tech"]
+  "alias": ["www.eatsleepcode.tech"],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/contact",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/posts",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/photoblog",
+      "dest": "/index.html"
+    }
+  ]
 }

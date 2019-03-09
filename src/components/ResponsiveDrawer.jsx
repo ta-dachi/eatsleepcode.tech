@@ -30,6 +30,7 @@ import Home from "./Content/Home";
 import Contact from "./Content/Contact";
 import Posts from "./Content/Posts";
 import PhotoBlog from "./Content/PhotoBlog";
+import NoMatch from "./Content/NoMatch";
 
 const drawerWidth = 240;
 
@@ -165,6 +166,8 @@ class ResponsiveDrawer extends React.Component {
             <Route path="/contact" component={Contact} />
             <Route path="/posts" component={Posts} />
             <Route path="/photoblog" component={PhotoBlog} />
+            {/* Catch all if there are no route matches */}
+            <Route component={NoMatch} />
           </Switch>
         </main>
       </div>

@@ -1,14 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import ResponsiveDrawer from "./components/ResponsiveDrawer";
-import { BrowserRouter } from "react-router-dom";
+import { Router } from "react-router-dom";
+import createBrowserHistory from "history/createBrowserHistory";
+
+const history = createBrowserHistory();
 
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter basename="/">
+      <Router history={history}>
         <ResponsiveDrawer />
-      </BrowserRouter>
+      </Router>
     );
   }
 }
