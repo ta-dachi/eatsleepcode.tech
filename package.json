@@ -1,6 +1,6 @@
 {
   "name": "eatsleepcode.tech",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "My Homepage",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
