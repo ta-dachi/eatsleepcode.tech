@@ -8,18 +8,32 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Link from "@material-ui/core/Link";
 import Avatar from "@material-ui/core/Avatar";
+import Typography from "@material-ui/core/Typography";
 import deepOrange from "@material-ui/core/colors/deepOrange";
+import Tooltip from "@material-ui/core/Tooltip";
+import Zoom from "@material-ui/core/Zoom";
 // Material UI Icons
+import { GoOctoface } from "react-icons/go";
 
 // We can inject some CSS into the DOM.
 const styles = theme => ({
+  root: {
+    width: "100%",
+    maxWidth: 360,
+    backgroundColor: theme.palette.background.paper
+  },
   orangeAvatar: {
-    margin: 10,
     color: "#fff",
     backgroundColor: deepOrange[500]
   },
-  nested: {
-    paddingLeft: theme.spacing.unit * 4
+  githubIcon: {
+    paddingTop: "4px"
+  },
+  padding: {
+    padding: theme.spacing.unit * 2
+  },
+  toolTip: {
+    fontSize: 15
   }
 });
 
@@ -27,20 +41,39 @@ function PwaList(props) {
   const { classes, children, className, ...other } = props;
 
   return (
-    <List component="div" disablePadding>
-      <Link
-        href={"/pwa/dir-tree-web-visual/dist/"}
-        underline="none"
-        target="_blank"
+    <List component="div" disablePadding className={classes.root}>
+      <Tooltip
+        TransitionComponent={Zoom}
+        title="My list of anime."
+        classes={{ tooltip: classes.toolTip }}
+        placement="bottom-end"
       >
-        <ListItem button className={classes.nested}>
-          <ListItemIcon>
-            <Avatar className={classes.orangeAvatar}>ANI</Avatar>
-          </ListItemIcon>
-
-          <ListItemText inset primary="AniList" />
+        <ListItem button alignItems="flex-start" className={classes.nested}>
+          <Link
+            href={"/pwa/dir-tree-web-visual/dist/"}
+            underline="none"
+            target="_blank"
+          >
+            <ListItemIcon>
+              <Avatar className={classes.orangeAvatar}>ANI</Avatar>
+            </ListItemIcon>
+          </Link>
+          <ListItemText
+            primary="Anilist"
+            secondary={
+              <React.Fragment>
+                <Link
+                  href={"https://github.com/ta-dachi/dir-tree-web-visual"}
+                  underline="none"
+                >
+                  {"Github"}
+                  <GoOctoface className={[classes.githubIcon]} />
+                </Link>
+              </React.Fragment>
+            }
+          />
         </ListItem>
-      </Link>
+      </Tooltip>
     </List>
   );
 }
