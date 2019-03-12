@@ -3,7 +3,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
-
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 module.exports = {
   mode: "production",
   entry: {
@@ -62,6 +62,7 @@ module.exports = {
       template: "src/index.html",
       filename: "index.html"
     }),
+    new CleanWebpackPlugin(),
     new CopyPlugin([
       {
         from: "src/pwa/",
@@ -74,8 +75,8 @@ module.exports = {
         to: "",
         toType: "file"
       }
-    ]),
-    new BundleAnalyzerPlugin()
+    ])
+    // new BundleAnalyzerPlugin()
   ],
   optimization: {
     splitChunks: {

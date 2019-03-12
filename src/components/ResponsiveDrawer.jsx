@@ -127,7 +127,7 @@ class ResponsiveDrawer extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
-              TAdachi's Home Page
+              T.Adachi's Home Page
             </Typography>
           </Toolbar>
         </AppBar>

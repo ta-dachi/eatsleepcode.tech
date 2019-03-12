@@ -3,7 +3,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
-
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: {
@@ -61,7 +61,7 @@ module.exports = {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
     host: "0.0.0.0",
-    port: 3031,
+    port: 3030,
     historyApiFallback: true
   },
   plugins: [
@@ -69,6 +69,7 @@ module.exports = {
       template: "src/index.html",
       filename: "index.html"
     }),
+    new CleanWebpackPlugin(),
     new CopyPlugin([
       {
         from: "src/pwa/",
