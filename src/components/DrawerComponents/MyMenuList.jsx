@@ -45,14 +45,6 @@ function MyMenuList(props) {
           <ListItemText primary={"Contact Mail"} />
         </ListItem>
       </Link>
-      <Href href={"https://github.com/ta-dachi"} underline="none">
-        <ListItem button key={"Github"}>
-          <ListItemIcon>
-            <GoOctoface size={"1.5em"} />
-          </ListItemIcon>
-          <ListItemText primary={"Github"} />
-        </ListItem>
-      </Href>
       <Link to="/posts" className={classes.linkStyle}>
         <ListItem button key={"Posts"}>
           <ListItemIcon>
@@ -69,6 +61,14 @@ function MyMenuList(props) {
           <ListItemText primary={"Photo Blog"} />
         </ListItem>
       </Link>
+      <Href href={"https://github.com/ta-dachi"} underline="none">
+        <ListItem button key={"Github"}>
+          <ListItemIcon>
+            <GoOctoface size={"1.5em"} />
+          </ListItemIcon>
+          <ListItemText primary={"Github"} />
+        </ListItem>
+      </Href>
     </List>
   );
 }

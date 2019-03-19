@@ -10,6 +10,8 @@ const styles = theme => ({});
 function PhotoBlog(props) {
   const { classes, children, className, ...other } = props;
 
+  document.title = "Photo Blog";
+
   return (
     <div>
       <Typography paragraph>This is my Photo Blog will be.</Typography>

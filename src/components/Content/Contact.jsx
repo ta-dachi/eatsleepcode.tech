@@ -10,6 +10,8 @@ const styles = theme => ({});
 function Contact(props) {
   const { classes, children, className, ...other } = props;
 
+  document.title = "Contact";
+
   return (
     <div>
       <Typography paragraph>

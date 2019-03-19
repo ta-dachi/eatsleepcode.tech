@@ -8,7 +8,6 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Link from "@material-ui/core/Link";
 import Avatar from "@material-ui/core/Avatar";
-import Typography from "@material-ui/core/Typography";
 import deepOrange from "@material-ui/core/colors/deepOrange";
 import pink from "@material-ui/core/colors/pink";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -49,7 +48,7 @@ function PwaList(props) {
     <List component="div" disablePadding className={classes.root}>
       <Tooltip
         TransitionComponent={Zoom}
-        title="My list of anime."
+        title="A PWA of my list of anime."
         classes={{ tooltip: classes.toolTip }}
         placement="bottom-end"
       >

@@ -10,6 +10,8 @@ const styles = theme => ({});
 function NoMatch(props) {
   const { classes, children, className, ...other } = props;
 
+  document.title = "No Match";
+
   return (
     <div>
       <Typography paragraph>Seems like you hit a wrong turn.</Typography>

@@ -10,6 +10,8 @@ const styles = theme => ({});
 function Posts(props) {
   const { classes, children, className, ...other } = props;
 
+  document.title = "Posts";
+
   return (
     <div>
       <Typography paragraph>
