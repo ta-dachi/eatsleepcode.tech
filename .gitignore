@@ -9,7 +9,7 @@ dist/
 # Sql Files
 *.sql
 
-# environment file
+# Environment file
 .env
 
 scratchpad.js
