@@ -9,5 +9,8 @@ dist/
 # Sql Files
 *.sql
 
+# environment file
+.env
+
 scratchpad.js
 TODO.md
