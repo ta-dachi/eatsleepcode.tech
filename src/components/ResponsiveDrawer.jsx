@@ -24,7 +24,7 @@ import AppsIcon from "@material-ui/icons/Apps";
 // React-Router-Dom
 import { Route, Switch } from "react-router-dom";
 // My Components
-import PwaList from "./DrawerComponents/PwaList";
+import AppList from "./DrawerComponents/AppList";
 import MyMenuList from "./DrawerComponents/MyMenuList";
 import Home from "./Content/Home";
 import Contact from "./Content/Contact";
@@ -108,7 +108,7 @@ class ResponsiveDrawer extends React.Component {
           {this.state.pwasOpen ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
         <Collapse in={this.state.pwasOpen} timeout="auto" unmountOnExit>
-          <PwaList />
+          <AppList />
         </Collapse>
       </div>
     );

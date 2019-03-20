@@ -1,4 +1,6 @@
-import app from "firebase/app";
+import Rebase from "re-base";
+import firebase from "firebase/app";
+import "firebase/database";
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -9,10 +11,9 @@ const config = {
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID
 };
 
-class Firebase {
-  constructor() {
-    app.initializeApp(config);
-  }
-}
+let appFB = firebase.initializeApp(config);
 
-export default Firebase;
+let db = firebase.database(appFB);
+let base = Rebase.createClass(db);
+
+export default base;

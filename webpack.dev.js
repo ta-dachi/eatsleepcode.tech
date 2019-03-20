@@ -4,6 +4,8 @@ const CopyPlugin = require("copy-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
+
 module.exports = {
   mode: "development",
   entry: {
@@ -69,6 +71,7 @@ module.exports = {
       template: "src/index.html",
       filename: "index.html"
     }),
+    new Dotenv(),
     new CleanWebpackPlugin(),
     new CopyPlugin([
       {

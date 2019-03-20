@@ -24,11 +24,16 @@ const styles = theme => ({
   },
   orangeAvatar: {
     color: "#fff",
-    backgroundColor: deepOrange[500]
+    backgroundColor: deepOrange[500],
+    fontSize: 20
   },
   pinkAvatar: {
     color: "#fff",
-    backgroundColor: pink[500]
+    backgroundColor: pink[500],
+    fontSize: 20
+  },
+  avatarText: {
+    fontSize: 10
   },
   githubIcon: {
     paddingTop: "4px"
@@ -41,7 +46,7 @@ const styles = theme => ({
   }
 });
 
-function PwaList(props) {
+function AppList(props) {
   const { classes, children, className, ...other } = props;
 
   return (
@@ -114,10 +119,10 @@ function PwaList(props) {
   );
 }
 
-PwaList.propTypes = {
+AppList.propTypes = {
   children: PropTypes.node,
   classes: PropTypes.object.isRequired,
   className: PropTypes.string
 };
 
-export default withStyles(styles)(PwaList);
+export default withStyles(styles)(AppList);
