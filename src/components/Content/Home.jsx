@@ -33,7 +33,7 @@ function Home(props) {
         <Paper className={classes.paper}>
           <Grid container wrap="nowrap" spacing={16}>
             <Grid item>
-              <Avatar>W</Avatar>
+              <Avatar>TA</Avatar>
             </Grid>
             <Grid item xs>
               <Typography paragraph>
@@ -50,7 +50,7 @@ function Home(props) {
         <Paper className={classes.paper}>
           <Grid container wrap="nowrap" spacing={16}>
             <Grid item>
-              <Avatar>W</Avatar>
+              <Avatar>TA</Avatar>
             </Grid>
             <Grid item xs>
               <Typography paragraph>
@@ -65,7 +65,7 @@ function Home(props) {
         <Paper className={classes.paper}>
           <Grid container wrap="nowrap" spacing={16}>
             <Grid item>
-              <Avatar>W</Avatar>
+              <Avatar>TA</Avatar>
             </Grid>
             <Grid item xs>
               <Typography paragraph>
