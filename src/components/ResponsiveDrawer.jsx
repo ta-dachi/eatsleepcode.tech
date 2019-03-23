@@ -31,6 +31,7 @@ import Contact from "./Content/Contact";
 import Posts from "./Content/Posts";
 import PhotoBlog from "./Content/PhotoBlog";
 import NoMatch from "./Content/NoMatch";
+import Copyright from "./Copyright";
 
 const drawerWidth = 240;
 
@@ -67,13 +68,18 @@ const styles = theme => ({
   mainAvatar: {
     marginLeft: "auto",
     marginRight: "auto",
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: 5,
+    marginBottom: 3,
     width: 70,
     height: 70,
     fontSize: 40,
     color: "#fff",
     backgroundColor: deepPurple[500]
+  },
+  centerInDrawer: {
+    marginLeft: "auto",
+    marginRight: "auto",
+    fontSize: 30
   }
 });
 
@@ -97,6 +103,9 @@ class ResponsiveDrawer extends React.Component {
     const drawer = (
       <div>
         <Avatar className={classes.mainAvatar}>TA</Avatar>
+        <ListItem className={classes.centerInDrawer}>
+          <Copyright name="Takumi Adachi" year={2019} />
+        </ListItem>
         <Divider />
         <MyMenuList />
         <Divider />

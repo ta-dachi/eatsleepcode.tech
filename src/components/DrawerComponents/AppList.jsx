@@ -9,6 +9,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Link from "@material-ui/core/Link";
 import Avatar from "@material-ui/core/Avatar";
 import deepOrange from "@material-ui/core/colors/deepOrange";
+import indigo from "@material-ui/core/colors/indigo";
 import pink from "@material-ui/core/colors/pink";
 import Tooltip from "@material-ui/core/Tooltip";
 import Zoom from "@material-ui/core/Zoom";
@@ -30,6 +31,11 @@ const styles = theme => ({
   pinkAvatar: {
     color: "#fff",
     backgroundColor: pink[500],
+    fontSize: 20
+  },
+  indigoAvatar: {
+    color: "#fff",
+    backgroundColor: indigo[500],
     fontSize: 20
   },
   avatarText: {
@@ -105,6 +111,38 @@ function AppList(props) {
               <React.Fragment>
                 <Link
                   href={"https://github.com/ta-dachi/pwa-starter"}
+                  underline="none"
+                >
+                  {"Github"}
+                  <GoOctoface className={[classes.githubIcon]} />
+                </Link>
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+      </Tooltip>
+      <Tooltip
+        TransitionComponent={Zoom}
+        title="Demo on using github v3 api to get latest commit info."
+        classes={{ tooltip: classes.toolTip }}
+        placement="bottom-end"
+      >
+        <ListItem button alignItems="flex-start" className={classes.nested}>
+          <Link
+            href={"latest-commit.ta-dachi.now.sh"}
+            underline="none"
+            target="_blank"
+          >
+            <ListItemIcon>
+              <Avatar className={classes.indigoAvatar}>LC</Avatar>
+            </ListItemIcon>
+          </Link>
+          <ListItemText
+            primary="latest-commit"
+            secondary={
+              <React.Fragment>
+                <Link
+                  href={"https://github.com/ta-dachi/latest-commit"}
                   underline="none"
                 >
                   {"Github"}
