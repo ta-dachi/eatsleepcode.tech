@@ -129,7 +129,7 @@ function AppList(props) {
       >
         <ListItem button alignItems="flex-start" className={classes.nested}>
           <Link
-            href={"latest-commit.ta-dachi.now.sh"}
+            href={"https://latest-commit.ta-dachi.now.sh"}
             underline="none"
             target="_blank"
           >
