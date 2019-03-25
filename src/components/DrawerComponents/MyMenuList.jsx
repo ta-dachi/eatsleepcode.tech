@@ -7,6 +7,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Href from "@material-ui/core/Link";
+import Switch from "@material-ui/core/Switch";
 // Material UI Icons
 import HomeIcon from "@material-ui/icons/Home";
 import ContactMailIcon from "@material-ui/icons/ContactMail";
@@ -18,7 +19,8 @@ import { GoOctoface } from "react-icons/go";
 // React-Router-Dom
 import { Link } from "react-router-dom";
 // My Components
-import ToggleDarkModeSwitch from "./ToggleDarkModeSwitch";
+// Store
+import UIStore from "../../store/UIStore";
 
 // We can inject some CSS into the DOM.
 const styles = theme => ({
@@ -72,11 +74,11 @@ function MyMenuList(props) {
           <ListItemText primary={"Github"} />
         </ListItem>
       </Href>
-      <ListItem button key={"Toggle Dark"}>
+      <ListItem button key={"Toggle Dark"} onClick={UIStore.ToggleDarkMode}>
         <ListItemIcon>
           <BrightnessMedium />
         </ListItemIcon>
-        <ToggleDarkModeSwitch />
+        <Switch checked={UIStore.darkMode} value="hidden" color="primary" />
       </ListItem>
     </List>
   );

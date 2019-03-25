@@ -80,6 +80,7 @@ function AppList(props) {
                 <Link
                   href={"https://github.com/ta-dachi/dir-tree-web-visual"}
                   underline="none"
+                  color="textSecondary"
                 >
                   {"Github"}
                   <GoOctoface className={[classes.githubIcon]} />
@@ -112,6 +113,7 @@ function AppList(props) {
                 <Link
                   href={"https://github.com/ta-dachi/pwa-starter"}
                   underline="none"
+                  color="textSecondary"
                 >
                   {"Github"}
                   <GoOctoface className={[classes.githubIcon]} />
@@ -123,7 +125,7 @@ function AppList(props) {
       </Tooltip>
       <Tooltip
         TransitionComponent={Zoom}
-        title="Demo on using github v3 api to get latest commit info."
+        title="Demo on using github v3 api to get latest commit info of a repo."
         classes={{ tooltip: classes.toolTip }}
         placement="bottom-end"
       >
@@ -144,6 +146,7 @@ function AppList(props) {
                 <Link
                   href={"https://github.com/ta-dachi/latest-commit"}
                   underline="none"
+                  color="textSecondary"
                 >
                   {"Github"}
                   <GoOctoface className={[classes.githubIcon]} />
