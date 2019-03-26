@@ -32,6 +32,7 @@ import Posts from "./Content/Posts";
 import PhotoBlog from "./Content/PhotoBlog";
 import NoMatch from "./Content/NoMatch";
 import Copyright from "./Copyright";
+import MiniGitCommitLog from "./MiniGitCommitLog";
 
 const drawerWidth = 240;
 
@@ -105,6 +106,9 @@ class ResponsiveDrawer extends React.Component {
         <Avatar className={classes.mainAvatar}>TA</Avatar>
         <ListItem className={classes.centerInDrawer}>
           <Copyright name="Takumi Adachi" year={2019} />
+        </ListItem>
+        <ListItem>
+          <MiniGitCommitLog />
         </ListItem>
         <Divider />
         <MyMenuList />
