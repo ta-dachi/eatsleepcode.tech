@@ -14,7 +14,7 @@ function PhotoBlog(props) {
 
   return (
     <div>
-      <Typography paragraph>This is my Photo Blog will be.</Typography>
+      <Typography paragraph>This is where my Photo Blog will be.</Typography>
     </div>
   );
 }

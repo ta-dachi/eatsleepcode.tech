@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const styles = theme => ({
   margins: {
@@ -10,6 +11,9 @@ const styles = theme => ({
   },
   text: {
     fontSize: 8
+  },
+  toolTip: {
+    fontSize: 15
   }
 });
 
@@ -22,15 +26,24 @@ class MiniGitCommitLog extends React.Component {
       date: "",
       sha: "",
       link: "",
+      commitMessage: "",
       error: null
     };
   }
 
   componentWillMount() {
     // Replace this with your own repo
-    // https://api.github.com/repos/:owner/:repo/branches/maste
+    // https://api.github.com/repos/:owner/:repo/branches/master
     fetch(
-      "https://api.github.com/repos/ta-dachi/eatsleepcode.tech/branches/master"
+      `https://api.github.com/repos/ta-dachi/eatsleepcode.tech/branches/master?access_token=${
+        process.env.GITHUB_ACCESS_TOKEN
+      }`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
     )
       .then(response => {
         response.json().then(json => {
@@ -39,7 +52,7 @@ class MiniGitCommitLog extends React.Component {
             this.setState({
               author: json.commit.author.login,
               branch: json.name,
-              date: json.commit.commit.author.date,
+              date: `Last updated: ${json.commit.commit.author.date}`,
               sha: json.commit.sha,
               link: json._links.html
             });
@@ -65,10 +78,15 @@ class MiniGitCommitLog extends React.Component {
 
     return (
       <div className={classes.margins}>
-        <Typography className={classes.text}>
-          Last updated: {this.state.date}
-        </Typography>
+        <Typography className={classes.text}>{this.state.date}</Typography>
+        {/* <Tooltip
+          TransitionComponent={Zoom}
+          title="A PWA of my list of anime."
+          classes={{ tooltip: classes.toolTip }}
+          placement="bottom-end"
+        > */}
         <Typography className={classes.text}>{this.state.sha}</Typography>
+        {/* </Tooltip> */}
       </div>
     );
   }
