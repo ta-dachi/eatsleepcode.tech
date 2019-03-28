@@ -34,6 +34,11 @@ class MiniGitCommitLog extends React.Component {
   componentWillMount() {
     // Replace this with your own repo
     // https://api.github.com/repos/:owner/:repo/branches/master
+    console.log(
+      `https://api.github.com/repos/ta-dachi/eatsleepcode.tech/branches/master?access_token=${
+        process.env.GITHUB_ACCESS_TOKEN
+      }`
+    );
     fetch(
       `https://api.github.com/repos/ta-dachi/eatsleepcode.tech/branches/master?access_token=${
         process.env.GITHUB_ACCESS_TOKEN
@@ -47,7 +52,6 @@ class MiniGitCommitLog extends React.Component {
     )
       .then(response => {
         response.json().then(json => {
-          console.log(json);
           if (json.commit) {
             this.setState({
               author: json.commit.author.login,
