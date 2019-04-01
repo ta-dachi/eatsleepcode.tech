@@ -17,6 +17,10 @@ import Zoom from "@material-ui/core/Zoom";
 import { GoOctoface } from "react-icons/go";
 
 // We can inject some CSS into the DOM.
+const avatarWidth = 45;
+const avatarHeight = 45;
+const avatarFontSize = 20;
+
 const styles = theme => ({
   root: {
     width: "100%",
@@ -26,20 +30,26 @@ const styles = theme => ({
   orangeAvatar: {
     color: "#fff",
     backgroundColor: deepOrange[500],
-    fontSize: 20
+    fontSize: avatarFontSize,
+    height: avatarHeight,
+    width: avatarWidth
   },
   pinkAvatar: {
     color: "#fff",
     backgroundColor: pink[500],
-    fontSize: 20
+    fontSize: avatarFontSize,
+    height: avatarHeight,
+    width: avatarWidth
   },
   indigoAvatar: {
     color: "#fff",
     backgroundColor: indigo[500],
-    fontSize: 20
+    fontSize: avatarFontSize,
+    height: avatarHeight,
+    width: avatarWidth
   },
-  avatarText: {
-    fontSize: 10
+  smallerText: {
+    fontSize: 15
   },
   githubIcon: {
     paddingTop: "4px"
@@ -49,6 +59,9 @@ const styles = theme => ({
   },
   toolTip: {
     fontSize: 15
+  },
+  cursor: {
+    cursor: "default"
   }
 });
 
@@ -63,7 +76,7 @@ function AppList(props) {
         classes={{ tooltip: classes.toolTip }}
         placement="bottom-end"
       >
-        <ListItem button alignItems="flex-start" className={classes.nested}>
+        <ListItem button alignItems="flex-start" className={classes.cursor}>
           <Link
             href={"/pwa/dir-tree-web-visual/dist/"}
             underline="none"
@@ -75,6 +88,9 @@ function AppList(props) {
           </Link>
           <ListItemText
             primary="Anilist"
+            classes={{
+              primary: classes.smallerText
+            }}
             secondary={
               <React.Fragment>
                 <Link
@@ -90,13 +106,14 @@ function AppList(props) {
           />
         </ListItem>
       </Tooltip>
+
       <Tooltip
         TransitionComponent={Zoom}
         title="A starter to get your Progressive Web App going."
         classes={{ tooltip: classes.toolTip }}
         placement="bottom-end"
       >
-        <ListItem button alignItems="flex-start" className={classes.nested}>
+        <ListItem button alignItems="flex-start" className={classes.cursor}>
           <Link
             href={"/pwa/pwa-starter/dist/"}
             underline="none"
@@ -108,6 +125,9 @@ function AppList(props) {
           </Link>
           <ListItemText
             primary="pwa-starter"
+            classes={{
+              primary: classes.smallerText
+            }}
             secondary={
               <React.Fragment>
                 <Link
@@ -129,7 +149,7 @@ function AppList(props) {
         classes={{ tooltip: classes.toolTip }}
         placement="bottom-end"
       >
-        <ListItem button alignItems="flex-start" className={classes.nested}>
+        <ListItem button alignItems="flex-start" className={classes.cursor}>
           <Link
             href={"https://latest-commit.ta-dachi.now.sh"}
             underline="none"
@@ -141,6 +161,9 @@ function AppList(props) {
           </Link>
           <ListItemText
             primary="latest-commit"
+            classes={{
+              primary: classes.smallerText
+            }}
             secondary={
               <React.Fragment>
                 <Link
