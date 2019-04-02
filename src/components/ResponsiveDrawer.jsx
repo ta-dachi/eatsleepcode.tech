@@ -33,6 +33,10 @@ import PhotoBlog from "./Content/PhotoBlog";
 import NoMatch from "./Content/NoMatch";
 import Copyright from "./Copyright";
 import MiniGitCommitLog from "./MiniGitCommitLog";
+// Mobx
+import { observer } from "mobx-react";
+// Store
+import UIStore from "../store/UIStore";
 
 const drawerWidth = 240;
 
@@ -84,6 +88,7 @@ const styles = theme => ({
   }
 });
 
+@observer
 class ResponsiveDrawer extends React.Component {
   state = {
     mobileOpen: false,
@@ -113,12 +118,12 @@ class ResponsiveDrawer extends React.Component {
         <Divider />
         <MyMenuList />
         <Divider />
-        <ListItem button onClick={this.handlePwasMenuToggle}>
+        <ListItem button onClick={UIStore.pwasOpenToggle}>
           <ListItemIcon>
             <AppsIcon />
           </ListItemIcon>
           <ListItemText inset primary="My Apps" />
-          {this.state.pwasOpen ? <ExpandLess /> : <ExpandMore />}
+          {UIStore.pwasOpen ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
         <Collapse in={this.state.pwasOpen} timeout="auto" unmountOnExit>
           <AppList />
@@ -151,7 +156,7 @@ class ResponsiveDrawer extends React.Component {
               container={this.props.container}
               variant="temporary"
               anchor={theme.direction === "rtl" ? "right" : "left"}
-              open={this.state.mobileOpen}
+              open={UIStore.drawerOpen}
               onClose={this.handleDrawerToggle}
               classes={{
                 paper: classes.drawerPaper
