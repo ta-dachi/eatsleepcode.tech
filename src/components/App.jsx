@@ -34,9 +34,7 @@ import NoMatch from "./Content/NoMatch";
 import Copyright from "./Copyright";
 import MiniGitCommitLog from "./MiniGitCommitLog";
 // Mobx
-import { observer } from "mobx-react";
-// Store
-import UIStore from "../store/UIStore";
+import { observer, inject } from "mobx-react";
 
 const drawerWidth = 240;
 
@@ -88,23 +86,13 @@ const styles = theme => ({
   }
 });
 
+@inject("UIStore")
+@inject("routing")
 @observer
-class ResponsiveDrawer extends React.Component {
-  state = {
-    mobileOpen: false,
-    pwasOpen: true
-  };
-
-  handleDrawerToggle = () => {
-    this.setState(state => ({ mobileOpen: !state.mobileOpen }));
-  };
-
-  handlePwasMenuToggle = () => {
-    this.setState(state => ({ pwasOpen: !state.pwasOpen }));
-  };
-
+class App extends React.Component {
   render() {
     const { classes, theme } = this.props;
+    const { location, push, goBack } = this.props.routing;
 
     const drawer = (
       <div>
@@ -115,17 +103,20 @@ class ResponsiveDrawer extends React.Component {
         <ListItem className={classes.centerInDrawer}>
           <MiniGitCommitLog />
         </ListItem>
+        <ListItem className={classes.centerInDrawer}>
+          <Typography>{location.pathname}</Typography>
+        </ListItem>
         <Divider />
         <MyMenuList />
         <Divider />
-        <ListItem button onClick={UIStore.pwasOpenToggle}>
+        <ListItem button onClick={() => this.props.UIStore.pwasOpenToggle()}>
           <ListItemIcon>
             <AppsIcon />
           </ListItemIcon>
           <ListItemText inset primary="My Apps" />
-          {UIStore.pwasOpen ? <ExpandLess /> : <ExpandMore />}
+          {this.props.UIStore.pwasOpen ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
-        <Collapse in={this.state.pwasOpen} timeout="auto" unmountOnExit>
+        <Collapse in={this.props.UIStore.pwasOpen} timeout="auto" unmountOnExit>
           <AppList />
         </Collapse>
       </div>
@@ -139,7 +130,7 @@ class ResponsiveDrawer extends React.Component {
             <IconButton
               color="inherit"
               aria-label="Open drawer"
-              onClick={this.handleDrawerToggle}
+              onClick={() => this.props.UIStore.handleDrawerToggle()}
               className={classes.menuButton}
             >
               <MenuIcon />
@@ -156,8 +147,8 @@ class ResponsiveDrawer extends React.Component {
               container={this.props.container}
               variant="temporary"
               anchor={theme.direction === "rtl" ? "right" : "left"}
-              open={UIStore.drawerOpen}
-              onClose={this.handleDrawerToggle}
+              open={this.props.UIStore.drawerOpen}
+              onClose={() => this.props.UIStore.handleDrawerToggle()}
               classes={{
                 paper: classes.drawerPaper
               }}
@@ -193,10 +184,10 @@ class ResponsiveDrawer extends React.Component {
   }
 }
 
-ResponsiveDrawer.propTypes = {
+App.propTypes = {
   classes: PropTypes.object.isRequired,
   container: PropTypes.object,
   theme: PropTypes.object.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(ResponsiveDrawer);
+export default withStyles(styles, { withTheme: true })(App);

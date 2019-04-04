@@ -11,13 +11,14 @@ const styles = theme => ({
   }
 });
 
+@inject("UIStore")
 @observer
 class ToggleDarkModeSwitch extends React.Component {
   render() {
     return (
       <Switch
-        checked={UIStore.darkMode}
-        onChange={UIStore.ToggleDarkMode}
+        checked={this.props.UIStore.darkMode}
+        onChange={() => this.props.UIStore.ToggleDarkMode()}
         value="hidden"
         color="primary"
       />

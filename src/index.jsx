@@ -4,29 +4,39 @@ import { Router } from "react-router-dom";
 import createBrowserHistory from "history/createBrowserHistory";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 // My Components
-import ResponsiveDrawer from "./components/ResponsiveDrawer";
-
+import App from "./components/App";
 // MobX
-import { observer } from "mobx-react";
+import { observer, Provider } from "mobx-react";
+import { RouterStore, syncHistoryWithStore } from "mobx-react-router";
 import UIStore from "./store/UIStore";
 
-const history = createBrowserHistory();
+const browserHistory = createBrowserHistory();
+const routingStore = new RouterStore();
+
+const stores = {
+  routing: routingStore,
+  UIStore: UIStore
+};
+
+const history = syncHistoryWithStore(browserHistory, routingStore);
 
 @observer
-class App extends React.Component {
+class Root extends React.Component {
   componentWillMount() {}
 
   componentWillUnmount() {}
 
   render() {
     return (
-      <Router history={history}>
-        <MuiThemeProvider theme={UIStore.theme}>
-          <ResponsiveDrawer />
-        </MuiThemeProvider>
-      </Router>
+      <Provider {...stores}>
+        <Router history={history}>
+          <MuiThemeProvider theme={UIStore.theme}>
+            <App />
+          </MuiThemeProvider>
+        </Router>
+      </Provider>
     );
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<Root />, document.getElementById("app"));

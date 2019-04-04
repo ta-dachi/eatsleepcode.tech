@@ -21,6 +21,8 @@ import { Link } from "react-router-dom";
 // My Components
 // Store
 import UIStore from "../../store/UIStore";
+// Mobx
+import { observer, inject } from "mobx-react";
 
 // We can inject some CSS into the DOM.
 const styles = theme => ({
@@ -29,59 +31,63 @@ const styles = theme => ({
   }
 });
 
-function MyMenuList(props) {
-  const { classes, children, className, ...other } = props;
+@inject("routing")
+class MyMenuList extends React.Component {
+  render() {
+    const { classes, children, className, ...other } = this.props;
+    const { location, push, goBack } = this.props.routing;
 
-  return (
-    <List>
-      <Link to="/" className={classes.linkStyle}>
-        <ListItem button key={"Home"}>
+    return (
+      <List>
+        <Link to="/" className={classes.linkStyle}>
+          <ListItem button key={"Home"}>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Home"} />
+          </ListItem>
+        </Link>
+        <Link to="/contact" className={classes.linkStyle}>
+          <ListItem button key={"Contact Mail"}>
+            <ListItemIcon>
+              <ContactMailIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Contact Mail"} />
+          </ListItem>
+        </Link>
+        <Link to="/posts" className={classes.linkStyle}>
+          <ListItem button key={"Posts"}>
+            <ListItemIcon>
+              <DescriptionIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Posts"} />
+          </ListItem>
+        </Link>
+        <Link to="/photoblog" className={classes.linkStyle}>
+          <ListItem button key={"Photo Blog"}>
+            <ListItemIcon>
+              <ImageIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Photo Blog"} />
+          </ListItem>
+        </Link>
+        <Href href={"https://github.com/ta-dachi"} underline="none">
+          <ListItem button key={"Github"}>
+            <ListItemIcon>
+              <GoOctoface size={"1.5em"} />
+            </ListItemIcon>
+            <ListItemText primary={"Github"} />
+          </ListItem>
+        </Href>
+        <ListItem button key={"Toggle Dark"} onClick={UIStore.ToggleDarkMode}>
           <ListItemIcon>
-            <HomeIcon />
+            <BrightnessMedium />
           </ListItemIcon>
-          <ListItemText primary={"Home"} />
+          <Switch checked={UIStore.darkMode} value="hidden" color="primary" />
         </ListItem>
-      </Link>
-      <Link to="/contact" className={classes.linkStyle}>
-        <ListItem button key={"Contact Mail"}>
-          <ListItemIcon>
-            <ContactMailIcon />
-          </ListItemIcon>
-          <ListItemText primary={"Contact Mail"} />
-        </ListItem>
-      </Link>
-      <Link to="/posts" className={classes.linkStyle}>
-        <ListItem button key={"Posts"}>
-          <ListItemIcon>
-            <DescriptionIcon />
-          </ListItemIcon>
-          <ListItemText primary={"Posts"} />
-        </ListItem>
-      </Link>
-      <Link to="/photoblog" className={classes.linkStyle}>
-        <ListItem button key={"Photo Blog"}>
-          <ListItemIcon>
-            <ImageIcon />
-          </ListItemIcon>
-          <ListItemText primary={"Photo Blog"} />
-        </ListItem>
-      </Link>
-      <Href href={"https://github.com/ta-dachi"} underline="none">
-        <ListItem button key={"Github"}>
-          <ListItemIcon>
-            <GoOctoface size={"1.5em"} />
-          </ListItemIcon>
-          <ListItemText primary={"Github"} />
-        </ListItem>
-      </Href>
-      <ListItem button key={"Toggle Dark"} onClick={UIStore.ToggleDarkMode}>
-        <ListItemIcon>
-          <BrightnessMedium />
-        </ListItemIcon>
-        <Switch checked={UIStore.darkMode} value="hidden" color="primary" />
-      </ListItem>
-    </List>
-  );
+      </List>
+    );
+  }
 }
 
 MyMenuList.propTypes = {
@@ -90,4 +96,4 @@ MyMenuList.propTypes = {
   className: PropTypes.string
 };
 
-export default withStyles(styles)(MyMenuList);
+export default withStyles(styles, { withTheme: true })(MyMenuList);

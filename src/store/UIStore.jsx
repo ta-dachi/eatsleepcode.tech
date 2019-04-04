@@ -7,7 +7,7 @@ class UIStore {
   @observable pendingRequestCount = 0;
   @observable theme = dark;
   @observable darkMode = true;
-  @observable drawerOpen = true;
+  @observable drawerOpen = false;
   @observable pwasOpen = true;
 
   @action.bound
@@ -17,14 +17,15 @@ class UIStore {
     this.darkMode ? (this.theme = dark) : (this.theme = light);
   }
 
-  @action.bound
+  @action
   handleDrawerToggle() {
     this.drawerOpen = !this.drawerOpen;
   }
 
-  @action.bound
+  @action
   pwasOpenToggle() {
     this.pwasOpen = !this.pwasOpen;
+    console.log(this.pwasOpen);
   }
 
   @computed get appIsInSync() {
