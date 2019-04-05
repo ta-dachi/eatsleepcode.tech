@@ -32,6 +32,7 @@ const styles = theme => ({
 });
 
 @inject("routing")
+@observer
 class MyMenuList extends React.Component {
   render() {
     const { classes, children, className, ...other } = this.props;
@@ -47,14 +48,19 @@ class MyMenuList extends React.Component {
             <ListItemText primary={"Home"} />
           </ListItem>
         </Link>
-        <Link to="/contact" className={classes.linkStyle}>
-          <ListItem button key={"Contact Mail"}>
-            <ListItemIcon>
-              <ContactMailIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Contact Mail"} />
-          </ListItem>
-        </Link>
+        {/* Uncomment incase mobx-react-router breaks. */}
+        {/* <Link
+          to="/contact"
+          className={classes.linkStyle}
+          onClick={() => push("/contact")}
+        > */}
+        <ListItem button key={"Contact Mail"} onClick={() => push("/contact")}>
+          <ListItemIcon>
+            <ContactMailIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Contact Mail"} />
+        </ListItem>
+        {/* </Link> */}
         <Link to="/posts" className={classes.linkStyle}>
           <ListItem button key={"Posts"}>
             <ListItemIcon>

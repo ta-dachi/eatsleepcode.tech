@@ -86,8 +86,8 @@ const styles = theme => ({
   }
 });
 
-@inject("UIStore")
 @inject("routing")
+@inject("UIStore")
 @observer
 class App extends React.Component {
   render() {
