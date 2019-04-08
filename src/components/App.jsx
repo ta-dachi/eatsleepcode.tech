@@ -97,15 +97,15 @@ class App extends React.Component {
     const drawer = (
       <div>
         <Avatar className={classes.mainAvatar}>TA</Avatar>
-        <ListItem button className={classes.centerInDrawer}>
+        <ListItem className={classes.centerInDrawer}>
           <Copyright name="Takumi Adachi" year={2019} />
         </ListItem>
         <ListItem className={classes.centerInDrawer}>
           <MiniGitCommitLog />
         </ListItem>
-        <ListItem className={classes.centerInDrawer}>
+        {/* <ListItem className={classes.centerInDrawer}>
           <Typography>{location.pathname}</Typography>
-        </ListItem>
+        </ListItem> */}
         <Divider />
         <MyMenuList />
         <Divider />

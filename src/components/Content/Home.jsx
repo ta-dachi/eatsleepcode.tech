@@ -19,6 +19,17 @@ const styles = theme => ({
     maxWidth: 1024,
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2
+  },
+  text: {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 12
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: 15
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: 20
+    }
   }
 });
 
@@ -36,7 +47,7 @@ function Home(props) {
               <Avatar>TA</Avatar>
             </Grid>
             <Grid item xs>
-              <Typography paragraph>
+              <Typography paragraph className={classes.text}>
                 I am a developer in Victoria, BC. Most of my projects are web
                 based, But I can build a variety of web applications that fit
                 your needs. My strong points include HTML/CSS, Javascript(React,
@@ -53,7 +64,7 @@ function Home(props) {
               <Avatar>TA</Avatar>
             </Grid>
             <Grid item xs>
-              <Typography paragraph>
+              <Typography paragraph className={classes.text}>
                 My Interests are not limited to programming, but also I.T and
                 Networking.
               </Typography>
@@ -68,7 +79,7 @@ function Home(props) {
               <Avatar>TA</Avatar>
             </Grid>
             <Grid item xs>
-              <Typography paragraph>
+              <Typography paragraph className={classes.text}>
                 This section and the rest of the website is under construction!
               </Typography>
             </Grid>
