@@ -22,10 +22,10 @@ const styles = theme => ({
   },
   text: {
     [theme.breakpoints.down("sm")]: {
-      fontSize: 12
+      fontSize: 10
     },
     [theme.breakpoints.up("md")]: {
-      fontSize: 15
+      fontSize: 14
     },
     [theme.breakpoints.up("lg")]: {
       fontSize: 20
