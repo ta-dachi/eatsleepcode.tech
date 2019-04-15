@@ -1,4 +1,4 @@
-Deployment Instructions
+## Deployment Instructions
 
 ```
 (npm run build)
@@ -8,7 +8,7 @@ OR
 (now rm homepage --f -y) -and (now -A now.json) -and (now -A now.json alias)
 ```
 
-Remove from zeit.co/now
+## Remove from zeit.co/now
 
 ```
 (now rm homepage --f -y)
