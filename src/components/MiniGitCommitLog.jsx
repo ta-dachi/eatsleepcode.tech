@@ -33,14 +33,11 @@ class MiniGitCommitLog extends React.Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     // Replace this with your own repo
     // https://api.github.com/repos/:owner/:repo/branches/master
-    console.log(
-      `https://api.github.com/repos/ta-dachi/eatsleepcode.tech/branches/master?access_token=${
-        process.env.GITHUB_ACCESS_TOKEN
-      }`
-    );
+    // See https://stackoverflow.com/questions/50029580/why-is-my-fetch-request-being-called-twice
+    // On why it requests twice on Chrome's Network tab. It is by design.
     fetch(
       `https://api.github.com/repos/ta-dachi/eatsleepcode.tech/branches/master?access_token=${
         process.env.GITHUB_ACCESS_TOKEN
@@ -78,8 +75,6 @@ class MiniGitCommitLog extends React.Component {
       });
   }
 
-  componentWillUnmount() {}
-
   render() {
     const { classes } = this.props;
 
@@ -112,4 +107,3 @@ MiniGitCommitLog.propTypes = {
 };
 
 export default withStyles(styles)(MiniGitCommitLog);
-// export default MiniGitCommitLog;

@@ -48,6 +48,19 @@ const styles = theme => ({
     height: avatarHeight,
     width: avatarWidth
   },
+  redAvatar: {
+    color: "#fff",
+    backgroundColor: "#f44336",
+    fontSize: avatarFontSize,
+    height: avatarHeight,
+    width: avatarWidth
+  },
+  YourAvatar: {
+    color: "#fff",
+    fontSize: avatarFontSize,
+    height: avatarHeight,
+    width: avatarWidth
+  },
   smallerText: {
     fontSize: 15
   },
@@ -168,6 +181,44 @@ function AppList(props) {
               <React.Fragment>
                 <Link
                   href={"https://github.com/ta-dachi/latest-commit"}
+                  underline="none"
+                  color="textSecondary"
+                >
+                  {"Github"}
+                  <GoOctoface className={[classes.githubIcon]} />
+                </Link>
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+      </Tooltip>
+      <Tooltip
+        TransitionComponent={Zoom}
+        title="Demonstration of uploading files to firebase."
+        classes={{ tooltip: classes.toolTip }}
+        placement="bottom-end"
+      >
+        <ListItem button alignItems="flex-start" className={classes.cursor}>
+          <Link
+            href={"https://goofy-feynman-21a89d.netlify.com/"}
+            underline="none"
+            target="_blank"
+          >
+            <ListItemIcon>
+              <Avatar className={classes.redAvatar}>FUfE</Avatar>
+            </ListItemIcon>
+          </Link>
+          <ListItemText
+            primary="firebase-upload-file-example"
+            classes={{
+              primary: classes.smallerText
+            }}
+            secondary={
+              <React.Fragment>
+                <Link
+                  href={
+                    "https://github.com/ta-dachi/firebase-upload-file-example"
+                  }
                   underline="none"
                   color="textSecondary"
                 >
