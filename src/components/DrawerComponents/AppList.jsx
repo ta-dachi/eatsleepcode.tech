@@ -230,6 +230,42 @@ function AppList(props) {
           />
         </ListItem>
       </Tooltip>
+      <Tooltip
+        TransitionComponent={Zoom}
+        title="A demo in using Editor.js."
+        classes={{ tooltip: classes.toolTip }}
+        placement="bottom-end"
+      >
+        <ListItem button alignItems="flex-start" className={classes.cursor}>
+          <Link
+            href={"https://distracted-ramanujan-2ec85e.netlify.com/"}
+            underline="none"
+            target="_blank"
+          >
+            <ListItemIcon>
+              <Avatar className={classes.orangeAvatar}>ERE</Avatar>
+            </ListItemIcon>
+          </Link>
+          <ListItemText
+            primary="editorjs-rebase-example"
+            classes={{
+              primary: classes.smallerText
+            }}
+            secondary={
+              <React.Fragment>
+                <Link
+                  href={"https://github.com/ta-dachi/editorjs-rebase-example"}
+                  underline="none"
+                  color="textSecondary"
+                >
+                  {"Github"}
+                  <GoOctoface className={[classes.githubIcon]} />
+                </Link>
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+      </Tooltip>
     </List>
   );
 }
