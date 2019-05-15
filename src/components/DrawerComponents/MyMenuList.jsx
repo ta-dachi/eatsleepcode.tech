@@ -60,23 +60,22 @@ class MyMenuList extends React.Component {
           </ListItemIcon>
           <ListItemText primary={"Contact Mail"} />
         </ListItem>
-        {/* </Link> */}
-        <Link to="/posts" className={classes.linkStyle}>
+        {/* <Link to="/posts" className={classes.linkStyle}>
           <ListItem button key={"Posts"}>
             <ListItemIcon>
               <DescriptionIcon />
             </ListItemIcon>
             <ListItemText primary={"Posts"} />
           </ListItem>
-        </Link>
-        <Link to="/photoblog" className={classes.linkStyle}>
+        </Link> */}
+        {/* <Link to="/photoblog" className={classes.linkStyle}>
           <ListItem button key={"Photo Blog"}>
             <ListItemIcon>
               <ImageIcon />
             </ListItemIcon>
             <ListItemText primary={"Photo Blog"} />
           </ListItem>
-        </Link>
+        </Link> */}
         <Href href={"https://github.com/ta-dachi"} underline="none">
           <ListItem button key={"Github"}>
             <ListItemIcon>
