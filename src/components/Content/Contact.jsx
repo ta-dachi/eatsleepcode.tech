@@ -27,9 +27,7 @@ function Contact(props) {
       <Typography paragraph>
         This is where I will put my Contact Details.
       </Typography>
-      <Typography>
-        For now, my preferred point of contact is my email:
-      </Typography>
+      <Typography>My preferred point of contact is my email:</Typography>
 
       <FormControlLabel
         className={classes.email}

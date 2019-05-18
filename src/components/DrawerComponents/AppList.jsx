@@ -83,7 +83,7 @@ function AppList(props) {
 
   return (
     <List component="div" disablePadding className={classes.root}>
-      <Tooltip
+      {/* <Tooltip
         TransitionComponent={Zoom}
         title="A PWA of my list of anime."
         classes={{ tooltip: classes.toolTip }}
@@ -118,7 +118,7 @@ function AppList(props) {
             }
           />
         </ListItem>
-      </Tooltip>
+      </Tooltip> */}
 
       <Tooltip
         TransitionComponent={Zoom}
@@ -255,6 +255,43 @@ function AppList(props) {
               <React.Fragment>
                 <Link
                   href={"https://github.com/ta-dachi/editorjs-rebase-example"}
+                  underline="none"
+                  color="textSecondary"
+                >
+                  {"Github"}
+                  <GoOctoface className={[classes.githubIcon]} />
+                </Link>
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+      </Tooltip>
+
+      <Tooltip
+        TransitionComponent={Zoom}
+        title="Another Twitch Chat Client."
+        classes={{ tooltip: classes.toolTip }}
+        placement="bottom-end"
+      >
+        <ListItem button alignItems="flex-start" className={classes.cursor}>
+          <Link
+            href={"https://elastic-borg-0e66e5.netlify.com/"}
+            underline="none"
+            target="_blank"
+          >
+            <ListItemIcon>
+              <Avatar className={classes.orangeAvatar}>Angu</Avatar>
+            </ListItemIcon>
+          </Link>
+          <ListItemText
+            primary="Angu-Cht"
+            classes={{
+              primary: classes.smallerText
+            }}
+            secondary={
+              <React.Fragment>
+                <Link
+                  href={"https://github.com/ta-dachi/angu-cht"}
                   underline="none"
                   color="textSecondary"
                 >

@@ -80,7 +80,7 @@ function Home(props) {
             </Grid>
             <Grid item xs>
               <Typography paragraph className={classes.text}>
-                This section and the rest of the website is under construction!
+                Thank you for visiting my homepage!
               </Typography>
             </Grid>
           </Grid>
